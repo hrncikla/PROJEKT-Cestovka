@@ -1,8 +1,229 @@
+html { box-sizing: border-box; }
+*, ::after, ::before { box-sizing: inherit; }
+
+$primary-color: #F03000;
+$text-color: #000000;
+$cards-color: #F0F0F0;
+$main-gap: 20px;
+$primary-font:'Montserrat', sans-serif;
+$secondary-font: 'Open Sans', sans-serif;
+
 body{
    margin: 0;
+   padding: 40px 20px;
+   margin-left: auto;
+      margin-right: auto;
+      max-width: 1160px;
 }
-.grid-container{
-   margin: 40px 20px;
-   background-color: antiquewhite;
+.img{
+   max-width: 100%;
+}
+
+/*---------------------------------------*/
+.navbar{
+   text-align: center;
+   &__img{
+      max-width: 100%;
+   }
+}
+.menu{
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+   padding: 0;
+   margin-top: 20px;
    
+   &__item{
+      list-style: none;
+   }
+   &__link{
+      font: normal normal normal 18px/22px $primary-font;
+      letter-spacing: 0px;
+      color: $primary-color;
+      text-decoration: none;
+      display: inline-block;
+      padding:20px;
+   }
+   &__link:hover{
+      background-color: $primary-color;
+      color: white;
+   }
+}
+
+.grid-container{
+   max-width: 1160px;
+   margin-left: auto;
+   margin-right: auto;
+   display: grid;
+   grid-template-columns: 1fr;
+   grid-template-rows: 180px auto;
+   gap: 20px;
+}
+.offer-card{
+   background-color: #F03000;  
+   position: relative;
+   font: normal normal 600 15px/27px Montserrat;
+   min-height: 180px;
+
+   &--main{
+      grid-row: 1 / span 2;
+      min-height: 240px;
+      font: normal normal 600 20px/27px Montserrat;
+   }
+   &__img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+   }
+   &__img-div{
+      width: 100%;
+      height: 100%;
+   }
+   &__content{
+      display: flex;
+      position: absolute;
+      color: white;
+      
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      justify-content: space-between;
+      flex-direction: column;
+   }
+   &__price{
+      margin: 20px;
+      width:fit-content;
+      padding: 10px;
+      background-color: $primary-color;
+   }
+   &__info{
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1) );
+      
+   }
+   &__title{
+      margin: 20px;
+      
+   }
+   &__text{
+      font: normal normal normal 16px/22px Open Sans;
+      margin: 20px;
+   }
+}
+.info-section{
+   margin: 40px 0;
+}
+.info-squares{
+   background-color:#F0F0F0;
+   font-family: $primary-font;
+   display: flex;
+   padding: 10px;
+   margin: 10px 0;
+   
+
+   &__title{
+      color: $primary-color;
+      
+   }
+   &__text{
+      font: normal normal normal 16px/22px Open Sans;
+      
+   }
+   &__container{
+      margin: 10px;
+   }
+   &__icon{
+      padding: 30px 15px;
+      min-width: 80px;
+   }
+
+   
+}
+.title{
+   font: normal normal 600 24px/32px Montserrat;
+}
+.news{
+   background-color: #F0F0F0;
+   font: normal normal normal 16px/19px Montserrat;
+   font-weight: bold;
+   padding: 20px;
+   margin: 20px 0;
+
+   &__date{
+      color:#888888 ;
+   }
+   &__title{
+      color: $primary-color;
+   }
+}
+.footer{
+   background-color: #444444;
+   text-align: center;
+   font: normal normal normal 16px/19px Montserrat;
+   font-weight: bold;
+   color: white;
+   padding: 20px;
+   margin: 5px 0;
+}
+@media only screen and (min-width: 750px){
+   .navbar{
+      display: flex;
+      justify-content: space-between;
+      justify-self:center;
+      flex-direction: row;
+      &__img{
+         padding: 30px 10px 0 30px;
+      }
+   }
+   .grid-container{
+      grid-template-columns:  1fr 1fr;
+      grid-template-rows: 180px auto;
+
+   }
+   .offer-card{
+      &--main{
+         grid-row: 1 / span 2;
+         grid-column: 1 / span 2;
+         min-height: 240px;
+      }
+   }
+   .info-section{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 20px;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 1160px;
+     
+   }
+   .info-squares{
+      flex-direction: column;
+      text-align: center;
+   }
+   .info-squares__icon{
+      padding: 10px 0 0 0;
+   }
+   .info-squares__container{
+      margin-top: 0 ;
+   }
+}
+@media only screen and (min-width: 1000px){
+   .info-section{
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+   }
+   .grid-container{
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: 180px auto;
+   }
+   .offer-card{
+      &--main{
+         grid-row: 1 / span 2;
+         grid-column: 1 / span 1;
+      }
+   }
+   .news-list{
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 20px;
+   }
 }
